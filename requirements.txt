@@ -1,0 +1,7 @@
+gdown==4.4.0
+matplotlib==3.5.2
+numpy==1.22.4
+pandas==1.4.2
+pyecharts==1.9.1
+streamlit==1.10.0
+streamlit_echarts==0.4.0
