@@ -24,6 +24,15 @@ import os
 #0. TITULO Y DESCRIPCION DEL PROYECTO
 st.title('Análisis de casos positivos registrados en Perú')
 st.markdown("""
+###Miembros del equipo
+- Isabel Muñoz
+- Enzo Baltazar
+- Joel Huillca
+- Stephany Samanez
+- Lucero de la Cruz
+- Leonardo Plasencia
+""")
+st.markdown("""
 ---
 ### 1. Descripción del proyecto
 El proyecto consiste en análisis exploratorio de un dataset que registra información
