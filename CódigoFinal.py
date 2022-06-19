@@ -1,27 +1,11 @@
-#import streamlit as st
-#import pandas as pd
-#import gdown
-#
-#id = 1op-iq0XhBXBQOPlagCPE9TzFsFkkNVjQ
-#@st.experimental_memo
-#def download_data():
-#  #https://drive.google.com/uc?id=
-#  url = "https://drive.google.com/uc?id=1op-iq0XhBXBQOPlagCPE9TzFsFkkNVjQ"
-#  output= "data.csv"
-#  gdown.download(url,output,quiet = False)
-#  
-#download_data()
-#data = pd.read_csv("data.csv", sep = ";", parse_dates = ["FECHA_CORTE","FECHA_RESULTADO"])
-#Simplificado = data.drop(columns = ["DISTRITO","FECHA_CORTE","FECHA_RESULTADO","UBIGEO","id_persona"])
-
-import matplotlib.pyplot as plt
+import streamlit as st
 import pandas as pd
 import numpy as np
-import streamlit as st
+import matplotlib.pyplot as plt
 import gdown
 import os
 
-#0. TITULO Y DESCRIPCION DEL PROYECTO
+#Título
 st.title('Casos Positivos de Covid-19 en el Perú')
 st.subheader("Miembros del equipo")
 st.markdown("""
@@ -44,8 +28,9 @@ Fuente de datos: (https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-c
 
 ---
 """)
-
-#1. CARGA DE DATOS
+st.markdown("""
+Para poder visualizar la información de una zona geográfica en específico del Perú, seleccione el nombre de un departamento, provincia y distrito
+""")
 
 # Lectura de datos desde CSV
 #id = 1op-iq0XhBXBQOPlagCPE9TzFsFkkNVjQ
