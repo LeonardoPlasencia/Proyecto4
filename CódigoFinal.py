@@ -21,7 +21,7 @@ import streamlit as st
 import gdown
 import os
 
-# 0. TITULO Y DESCRIPCION DEL PROYECTO
+#0. TITULO Y DESCRIPCION DEL PROYECTO
 st.title('Análisis de casos positivos registrados en Perú')
 st.markdown("""
 ---
@@ -59,14 +59,17 @@ streamlit_echarts==0.4.0
 ```
 
 ### 4. Miembros del equipo
-- Lapadula, Gianluca
-- Advincula, Luis
-- Medina, Magaly
+- Isabel Muñoz
+- Enzo Baltazar
+- Joel Huillca
+- Stephany Samanez
+- Lucero de la Cruz
+- Leonardo Plasencia
 
 ### 5. Dashboard
 """)
 
-# 1. CARGA DE DATOS
+#1. CARGA DE DATOS
 
 # Lectura de datos desde CSV
 #id = 1op-iq0XhBXBQOPlagCPE9TzFsFkkNVjQ
@@ -82,37 +85,37 @@ def download_data():
   
 download_data()
 df = pd.read_csv("downloads/data.csv", sep = ";", parse_dates = ["FECHA_CORTE","FECHA_RESULTADO"])
-# Simplificacion del dataset (retiro de columnas)
+#Simplificacion del dataset (retiro de columnas)
 df = df.drop(columns = ["FECHA_CORTE","FECHA_RESULTADO","UBIGEO","id_persona"])
 
-# 2. FILTROS
+#2. FILTROS
 
-# Construccion del set/list de departamentos (Valores unicos sin NA)
+#Construccion del set/list de departamentos (Valores unicos sin NA)
 set_departamentos = np.sort(df['DEPARTAMENTO'].dropna().unique())
-# Seleccion del departamento
+#Seleccion del departamento
 opcion_departamento = st.selectbox('Selecciona un departamento', set_departamentos)
 df_departamentos = df[df['DEPARTAMENTO'] == opcion_departamento]
 num_filas = len(df_departamentos.axes[0]) 
 
-# Construccion del set/list de provincias (Valores unicos sin NA)
+#Construccion del set/list de provincias (Valores unicos sin NA)
 set_provincias = np.sort(df_departamentos['PROVINCIA'].dropna().unique())
-# Seleccion de la provincia
+#Seleccion de la provincia
 opcion_provincia = st.selectbox('Selecciona una provincia', set_provincias)
 df_provincias = df_departamentos[df_departamentos['PROVINCIA'] == opcion_provincia]
 num_filas = len(df_provincias.axes[0]) 
 
-# Construccion del set/list de distritos (Valores unicos sin NA)
+#Construccion del set/list de distritos (Valores unicos sin NA)
 set_distritos = np.sort(df_departamentos['DISTRITO'].dropna().unique())
-# Seleccion de la distrito
+#Seleccion de la distrito
 opcion_distrito = st.selectbox('Selecciona un distrito', set_distritos)
 df_distritos = df_departamentos[df_departamentos['DISTRITO'] == opcion_distrito]
 num_filas = len(df_distritos.axes[0]) 
 
 st.write('Numero de registros:', num_filas)
 
-# GRAFICOS
+#GRAFICOS
 
-# Pie chart de METODODX
+#Pie chart de METODODX
 df_metododx = df_distritos.METODODX.value_counts()
 df_metododx = pd.DataFrame(df_metododx)
 df_metododx = df_metododx.reset_index()  
@@ -124,12 +127,12 @@ ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 st.write('Distribución por METODODX:')
 st.pyplot(fig1)
 
-# Ploteo de las frecuencias SEXO
+#Ploteo de las frecuencias SEXO
 df_SEXO = df_distritos.SEXO.value_counts()
 st.write('Distribución por SEXO:')
 st.bar_chart(df_SEXO)
 
-# Ploteo de las frecuencias EDAD
+#Ploteo de las frecuencias EDAD
 df_edad = df_distritos.EDAD.value_counts()
 st.write('Distribución por EDAD:')
 st.bar_chart(df_edad)
