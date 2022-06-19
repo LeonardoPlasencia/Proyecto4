@@ -29,10 +29,10 @@ Fuente de datos: (https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-c
 ---
 """)
 st.markdown("""
-Para poder visualizar la información de una zona geográfica en específico del Perú, seleccione el nombre de un departamento, provincia y distrito
+Para poder visualizar la información de una zona geográfica en específico del Perú, seleccione el nombre de un departamento, provincia y distrito.
 """)
 
-# Lectura de datos desde CSV
+#Lectura de datos desde CSV
 #id = 1op-iq0XhBXBQOPlagCPE9TzFsFkkNVjQ
 if not os.path.exists('downloads'):
   os.makedirs('downloads')
@@ -49,7 +49,7 @@ df = pd.read_csv("downloads/data.csv", sep = ";", parse_dates = ["FECHA_CORTE","
 #Simplificacion del dataset (retiro de columnas)
 df = df.drop(columns = ["FECHA_CORTE","FECHA_RESULTADO","UBIGEO","id_persona"])
 
-#2. FILTROS
+#Sistema de filtros
 
 #Construccion del set/list de departamentos (Valores unicos sin NA)
 set_departamentos = np.sort(df['DEPARTAMENTO'].dropna().unique())
@@ -74,9 +74,9 @@ num_filas = len(df_distritos.axes[0])
 
 st.write('Numero de registros:', num_filas)
 
-#GRAFICOS
+#Gráficas
 
-#Pie chart de METODODX
+#Gráfica de pie de METODODX
 df_metododx = df_distritos.METODODX.value_counts()
 df_metododx = pd.DataFrame(df_metododx)
 df_metododx = df_metododx.reset_index()  
@@ -88,12 +88,12 @@ ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 st.write('Distribución por METODODX:')
 st.pyplot(fig1)
 
-#Ploteo de las frecuencias SEXO
+#Gráfica de barras de SEXO
 df_SEXO = df_distritos.SEXO.value_counts()
 st.write('Distribución por SEXO:')
 st.bar_chart(df_SEXO)
 
-#Ploteo de las frecuencias EDAD
+#Gráfica de barras de EDAD
 df_edad = df_distritos.EDAD.value_counts()
 st.write('Distribución por EDAD:')
 st.bar_chart(df_edad)
