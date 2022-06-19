@@ -22,7 +22,7 @@ import gdown
 import os
 
 #0. TITULO Y DESCRIPCION DEL PROYECTO
-st.title('Análisis de casos positivos registrados en Perú')
+st.title('Casos Positivos de Covid-19 en el Perú')
 st.subheader("Miembros del equipo")
 st.markdown("""
 - Isabel Muñoz
@@ -41,8 +41,7 @@ Cada registro es equivalente a una persona, así como su sexo, edad y distintos 
 departamento, provincia y distrito. 
 
 Fuente de datos: (https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa)
-
-### 5. Dashboard
+---
 """)
 
 #1. CARGA DE DATOS
