@@ -41,6 +41,7 @@ Cada registro es equivalente a una persona, así como su sexo, edad y distintos 
 departamento, provincia y distrito. 
 
 Fuente de datos: (https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa)
+
 ---
 """)
 
