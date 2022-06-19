@@ -34,11 +34,13 @@ st.markdown("""
 """)
 st.markdown("""
 ---
-### 1. Descripción del proyecto
-El proyecto consiste en análisis exploratorio de un dataset que registra información
-de los casos positivos detectados en Perú durante el mes de mayo del año 2022.
+La información contenida en esta página web permite acceder al Dataset “Casos positivos por COVID-19” 
+elaborado por el Ministerio de Salud (MINSA) del Perú. Este ha registrado el monitoreo diario de los 
+casos positivos de covid-19 confirmados con cualquier tipo de prueba hasta el día 23 de mayo de 2022. 
+Cada registro es equivalente a una persona, así como su sexo, edad y distintos niveles de ubicación geográfica: 
+departamento, provincia y distrito. 
 
-Fuente de datos: [https://ejemplo.com/](https://ejemplo.com/)
+Fuente de datos: (https://www.datosabiertos.gob.pe/dataset/casos-positivos-por-covid-19-ministerio-de-salud-minsa)
 
 ### 2. Origen de los datos
 El conjunto de dato se obtuvo del portal de datos abiertos del MINSA.
